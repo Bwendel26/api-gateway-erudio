@@ -1,0 +1,67 @@
+HELP.md
+
+### https://github.com/github/gitignore/blob/main/Maven.gitignore: ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+**/.project
+**/.settings/
+**/.classpath
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.factorypath
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### IntelliJ Files
+**/*.iml
+**/.idea
+**/.gradle
+
+### SSH Keys ###
+
+*.pem
+*.ppk
+
+### Package Files ###
+*.jar
+*.war
+*.ear

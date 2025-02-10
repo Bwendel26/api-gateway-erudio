@@ -1,6 +1,6 @@
 package com.spring.erudio.api_gateway.config;
 
-import com.spring.erudio.api_gateway.serialization.converter.YamlJackson2HttpMesageConverter;
+import com.spring.erudio.api_gateway.serialization.converter.YamlJackson2HttpMessageConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(new YamlJackson2HttpMesageConverter());
+        converters.add(new YamlJackson2HttpMessageConverter());
     }
 
 

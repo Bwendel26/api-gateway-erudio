@@ -1,13 +1,14 @@
 package com.spring.erudio.api_gateway.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.Date;
 
 @Entity
-@Table(name = "book")
+@Table(name = "books")
 public class Book implements Serializable {
 
     @Serial
@@ -17,16 +18,20 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title", length = 100,nullable = false)
+    @Column(name = "title", length = 250, nullable = false)
     private String title;
-    @Column(name = "category", length = 80,nullable = false)
+    @Column(name = "category", length = 80)
     private String category;
-    @Column(name = "author", length = 100,nullable = false)
+    @Column(name = "author", length = 100)
     private String author;
-    @Column(name = "number_of_pages", length = 20,nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "launch_date", length = 10, nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date launchDate;
+    @Column(name = "number_of_pages")
     private Integer numberOfPages;
-    @Column(name = "language", length = 30,nullable = false)
-    private String language;
+    @Column(name = "price", nullable = false)
+    private Double price;
 
     public Long getId() {
         return id;
@@ -68,24 +73,19 @@ public class Book implements Serializable {
         this.numberOfPages = numberOfPages;
     }
 
-    public String getLanguage() {
-        return language;
+    public Date getLaunchDate() {
+        return launchDate;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLaunchDate(Date launchDate) {
+        this.launchDate = launchDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(category, book.category) && Objects.equals(author, book.author) && Objects.equals(numberOfPages, book.numberOfPages) && Objects.equals(language, book.language);
+    public Double getPrice() {
+        return price;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, category, author, numberOfPages, language);
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

@@ -1,5 +1,8 @@
 package com.spring.erudio.api_gateway.services;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import com.spring.erudio.api_gateway.controllers.PersonController;
 import com.spring.erudio.api_gateway.data.vo.v1.PersonVO;
 import com.spring.erudio.api_gateway.exceptions.RequiredObjectIsNullException;
@@ -8,8 +11,6 @@ import com.spring.erudio.api_gateway.mapper.DozerMapper;
 import com.spring.erudio.api_gateway.model.Person;
 import com.spring.erudio.api_gateway.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

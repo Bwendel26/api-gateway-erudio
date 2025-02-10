@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -51,7 +52,7 @@ public class PersonServicesTest {
         assertNotNull(result.getKey());
         assertNotNull(result.getLinks());
         assertTrue(result.toString().contains("links: [</person/1>;rel=\"self\"]"));
-        assertEquals("Addres Test1", result.getAddress());
+        assertEquals("Address Test1", result.getAddress());
         assertEquals("First Name Test1", result.getFirstName());
         assertEquals("Last Name Test1", result.getLastName());
         assertEquals("Female", result.getGender());
@@ -68,21 +69,21 @@ public class PersonServicesTest {
 
         var personOne = people.get(1);
         assertTrue(personOne.toString().contains("links: [</person/1>;rel=\"self\"]"));
-        assertEquals("Addres Test1", personOne.getAddress());
+        assertEquals("Address Test1", personOne.getAddress());
         assertEquals("First Name Test1", personOne.getFirstName());
         assertEquals("Last Name Test1", personOne.getLastName());
         assertEquals("Female", personOne.getGender());
 
         var personFour = people.get(4);
         assertTrue(personFour.toString().contains("links: [</person/4>;rel=\"self\"]"));
-        assertEquals("Addres Test4", personFour.getAddress());
+        assertEquals("Address Test4", personFour.getAddress());
         assertEquals("First Name Test4", personFour.getFirstName());
         assertEquals("Last Name Test4", personFour.getLastName());
         assertEquals("Male", personFour.getGender());
 
         var personTen = people.get(10);
         assertTrue(personTen.toString().contains("links: [</person/10>;rel=\"self\"]"));
-        assertEquals("Addres Test10", personTen.getAddress());
+        assertEquals("Address Test10", personTen.getAddress());
         assertEquals("First Name Test10", personTen.getFirstName());
         assertEquals("Last Name Test10", personTen.getLastName());
         assertEquals("Male", personTen.getGender());
@@ -90,21 +91,20 @@ public class PersonServicesTest {
 
     @Test
     void testCreate() {
-        Person entity = input.mockEntity(1);
-        Person persisted = entity;
+        Person persisted = input.mockEntity(1);
         persisted.setId(1L);
 
         PersonVO vo = input.mockVO(1);
         vo.setKey(1L);
 
-        when(repository.save(entity)).thenReturn(persisted);
+        when(repository.save(any(Person.class))).thenReturn(persisted);
 
         var result = service.create(vo);
         assertNotNull(result);
         assertNotNull(result.getKey());
         assertNotNull(result.getLinks());
         assertTrue(result.toString().contains("links: [</person/1>;rel=\"self\"]"));
-        assertEquals("Addres Test1", result.getAddress());
+        assertEquals("Address Test1", result.getAddress());
         assertEquals("First Name Test1", result.getFirstName());
         assertEquals("Last Name Test1", result.getLastName());
         assertEquals("Female", result.getGender());
@@ -140,7 +140,7 @@ public class PersonServicesTest {
         assertNotNull(result.getKey());
         assertNotNull(result.getLinks());
         assertTrue(result.toString().contains("links: [</person/1>;rel=\"self\"]"));
-        assertEquals("Addres Test1", result.getAddress());
+        assertEquals("Address Test1", result.getAddress());
         assertEquals("First Name Test1", result.getFirstName());
         assertEquals("Last Name Test1", result.getLastName());
         assertEquals("Female", result.getGender());

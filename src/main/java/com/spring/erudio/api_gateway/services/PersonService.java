@@ -9,17 +9,19 @@ import com.spring.erudio.api_gateway.exceptions.RequiredObjectIsNullException;
 import com.spring.erudio.api_gateway.exceptions.ResourceNotFoundException;
 import com.spring.erudio.api_gateway.mapper.DozerMapper;
 import com.spring.erudio.api_gateway.model.Person;
+import com.spring.erudio.api_gateway.model.Address;
 import com.spring.erudio.api_gateway.repositories.PersonRepository;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 @Service
 public class PersonService {
 
-    private final Logger logger = Logger.getLogger(PersonService.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(PersonService.class.getName());
 
     @Autowired
     private PersonRepository repository;
@@ -62,7 +64,7 @@ public class PersonService {
 
         entity.setFirstName(person.getFirstName());
         entity.setLastName(person.getLastName());
-        entity.setAddress(person.getAddress());
+        entity.setCep(person.getCep());
         entity.setGender(person.getGender());
 
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);

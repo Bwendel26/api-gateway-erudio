@@ -9,7 +9,6 @@ import com.spring.erudio.api_gateway.exceptions.RequiredObjectIsNullException;
 import com.spring.erudio.api_gateway.exceptions.ResourceNotFoundException;
 import com.spring.erudio.api_gateway.mapper.DozerMapper;
 import com.spring.erudio.api_gateway.model.Person;
-import com.spring.erudio.api_gateway.model.Address;
 import com.spring.erudio.api_gateway.repositories.PersonRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

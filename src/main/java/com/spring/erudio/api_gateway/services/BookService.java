@@ -10,16 +10,17 @@ import com.spring.erudio.api_gateway.exceptions.ResourceNotFoundException;
 import com.spring.erudio.api_gateway.mapper.DozerMapper;
 import com.spring.erudio.api_gateway.model.Book;
 import com.spring.erudio.api_gateway.repositories.BookRepository;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 @Service
 public class BookService {
 
-    private final Logger logger = Logger.getLogger(BookService.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(BookService.class.getName());
 
     @Autowired
     private BookRepository repository;

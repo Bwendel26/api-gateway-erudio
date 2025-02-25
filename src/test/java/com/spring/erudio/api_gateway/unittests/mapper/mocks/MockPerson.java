@@ -2,6 +2,7 @@ package com.spring.erudio.api_gateway.unittests.mapper.mocks;
 
 import com.spring.erudio.api_gateway.data.vo.v1.PersonVO;
 import com.spring.erudio.api_gateway.model.Person;
+import com.spring.erudio.api_gateway.model.Address;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class MockPerson {
 
     public Person mockEntity(Integer number) {
         Person person = new Person();
-        person.setAddress("Address Test" + number);
+        person.setAddress(new Address());
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
         person.setId(number.longValue());
@@ -43,7 +44,7 @@ public class MockPerson {
 
     public PersonVO mockVO(Integer number) {
         PersonVO person = new PersonVO();
-        person.setAddress("Address Test" + number);
+        person.setCep("Cep Test" + number);
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
         person.setKey(number.longValue());
